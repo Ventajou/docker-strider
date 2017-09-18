@@ -22,7 +22,9 @@ RUN mkdir -p $STRIDER_SRC && cd $STRIDER_SRC && \
     # Allow strider user to update .restart file
     chown strider:strider ${STRIDER_SRC}/.restart && \
     # Cleanup Upstream cruft
-    rm -rf /tmp/*
+    rm -rf /tmp/* \
+    # take ownership the home folder so we can write stuff in there
+    chown strider:strider ${STRIDER_HOME}
 
 ENV PATH ${STRIDER_SRC}/bin:$PATH
 
