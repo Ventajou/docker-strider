@@ -23,8 +23,9 @@ RUN mkdir -p $STRIDER_SRC && cd $STRIDER_SRC && \
     chown strider:strider ${STRIDER_SRC}/.restart && \
     # Cleanup Upstream cruft
     rm -rf /tmp/* && \
+    mkdir -p $STRIDER_HOME/projects && \
     # take ownership the home folder so we can write stuff in there
-    chown strider:strider ${STRIDER_HOME}
+    chown -R strider:strider ${STRIDER_HOME}
 
 ENV PATH ${STRIDER_SRC}/bin:$PATH
 
