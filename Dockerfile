@@ -25,7 +25,9 @@ RUN mkdir -p $STRIDER_SRC && cd $STRIDER_SRC && \
     rm -rf /tmp/* && \
     mkdir -p $STRIDER_HOME/projects && \
     # take ownership the home folder so we can write stuff in there
-    chown -R strider:strider ${STRIDER_HOME}
+    chown -R strider:strider ${STRIDER_HOME}/projects
+
+VOLUME [ "$STRIDER_HOME/projects"]
 
 ENV PATH ${STRIDER_SRC}/bin:$PATH
 
